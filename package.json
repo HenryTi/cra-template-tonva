@@ -1,0 +1,57 @@
+{
+	"name": "cra-template-tonva",
+	"version": "0.1.0",
+	"private": false,
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/henryti/cra-template-tonva"
+	},
+	"dependencies": {
+	  "@testing-library/jest-dom": "^5.11.6",
+	  "@testing-library/react": "^11.2.2",
+	  "@testing-library/user-event": "^12.2.2",
+	  "@types/classnames": "^2.2.11",
+	  "@types/jest": "^26.0.15",
+	  "@types/lodash": "^4.14.165",
+	  "@types/node": "^12.19.7",
+	  "@types/react": "^16.14.2",
+	  "@types/react-dom": "^16.9.10",
+	  "bootstrap": "^4.5.3",
+	  "classnames": "^2.2.6",
+	  "font-awesome": "^4.7.0",
+	  "jwt-decode": "^3.1.2",
+	  "lodash": "^4.17.20",
+	  "mobx": "^6.0.4",
+	  "mobx-react": "^7.0.5",
+	  "react": "^17.0.1",
+	  "react-dom": "^17.0.1",
+	  "react-scripts": "4.0.1",
+	  "tonva": "^1.9.10",
+	  "typescript": "^4.1.2",
+	  "web-vitals": "^0.2.4"
+	},
+	"scripts": {
+	  "start": "SET PORT=7123&&react-scripts start",
+	  "build": "react-scripts build",
+	  "test": "react-scripts test",
+	  "eject": "react-scripts eject"
+	},
+	"eslintConfig": {
+	  "extends": [
+		"react-app",
+		"react-app/jest"
+	  ]
+	},
+	"browserslist": {
+	  "production": [
+		">0.2%",
+		"not dead",
+		"not op_mini all"
+	  ],
+	  "development": [
+		"last 1 chrome version",
+		"last 1 firefox version",
+		"last 1 safari version"
+	  ]
+	}
+}
