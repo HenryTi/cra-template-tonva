@@ -1,11 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { NavView, start, nav } from 'tonva-react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
-//import App from './App';
 import reportWebVitals from './reportWebVitals';
-
-import { NavView, start, nav } from 'tonva-react';
 import { CApp, appConfig } from './UqApp';
 
 nav.setSettings(appConfig);
