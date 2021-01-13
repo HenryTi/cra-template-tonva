@@ -10,7 +10,10 @@ export class VBug extends VPage<CBug> {
 	}
 	content() {
         return <div>
-			{this.controller.debugItems.map(this.renderItem)}
+			<div>
+				{this.controller.debugItems.map(this.renderItem)}
+			</div>
+			<button onClick={this.controller.test}>test</button>
 		</div>;
 	}
 

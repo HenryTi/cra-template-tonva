@@ -1,7 +1,11 @@
 import { CUqBase } from "../UqApp";
-import { QueryPager, User } from "tonva-react";
+import { nav, QueryPager, UQsMan, User } from "tonva-react";
 import { VMe } from "./VMe";
 import { VEditMe } from "./VEditMe";
+import { VRoles } from "./VRoles";
+//import { CRoleAdmin } from "tonva-react-uq-roles";
+import { CRoleAdmin } from "./roleAdmin";
+import { makeObservable, observable } from "mobx";
 
 export interface RootUnitItem {
 	id: number;					// root unit id
@@ -12,10 +16,23 @@ export interface RootUnitItem {
 	x: number;
 }
 
+const roleCaptionMap:{[role:string]: string} = {
+	accountant: '会计',
+	manager: '经理',
+}
+
 export class CMe extends CUqBase {
 	role: number;
 	unitOwner: User;
 	rootUnits: QueryPager<any>;
+	roles: string[] = null;
+
+	constructor(res:any) {
+		super(res);
+		makeObservable(this, {
+			roles: observable,
+		})
+	}
 
     protected async internalStart() {
 	}
@@ -57,4 +74,29 @@ export class CMe extends CUqBase {
 		item.x = x;
 	}
 	*/
+
+	load = async () => {
+		this.roles = await this.getUqRoles(this.uqs.BzHelloTonva.$name);
+	}
+
+	backend = async () => {
+		this.openVPage(VRoles);
+	}
+
+	async showRoleAdmin() {
+		let  uq = UQsMan.uq(this.uqs.BzHelloTonva.$name);
+		let {allRoles} = uq;
+		if (!allRoles || allRoles.length === 0) {
+			alert(`uq ${uq.name} has not defined roles`);
+			return;
+		}
+		let cRoleAdmin = new CRoleAdmin(this.res, uq, this.myRolesChanged, roleCaptionMap);
+		await cRoleAdmin.start();
+	}
+
+	private myRolesChanged = (roles:string[]) => {
+		this.roles = roles;
+		this.user.roles[this.uqs.BzHelloTonva.$name] = roles;
+		nav.saveLocalUser();
+	}
 }

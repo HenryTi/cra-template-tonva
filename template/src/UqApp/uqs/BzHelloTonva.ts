@@ -1,11 +1,12 @@
-//=== UqApp builder created on Wed Jan 06 2021 21:29:21 GMT-0500 (GMT-05:00) ===//
-import { UqTuid, UqQuery, UqAction, UqSheet/*, Map, Tag*/ } from "tonva-react";
+//=== UqApp builder created on Tue Jan 12 2021 19:32:20 GMT-0500 (GMT-05:00) ===//
+import { UqTuid, UqAction, UqBook, UqQuery } from "tonva-react";
+
 
 //===============================
 //======= UQ BizDev/hello-tonva ========
 //===============================
 
-export declare namespace HelloTonva {
+export declare namespace BzHelloTonva {
 export interface TuidProduct {
 	name: string;
 }
@@ -15,7 +16,6 @@ export interface Tuid$user {
 	nick: string;
 	icon: string;
 	assigned: string;
-	roles: number;
 	poke: number;
 }
 
@@ -44,6 +44,7 @@ export interface Param$poked {
 }
 interface Return$pokedRet {
 	poke: number;
+	$id: number;
 }
 interface Result$poked {
 	ret: Return$pokedRet[];
@@ -61,15 +62,25 @@ interface ResultGetProductStock {
 	ret: ReturnGetProductStockRet[];
 }
 
+export interface ParamBookProduct {
+}
+interface ReturnBookProduct$page {
+	product: number;
+	stock: any;
+}
+interface ResultBookProduct {
+	$page: ReturnBookProduct$page[];
+}
 
-export interface UqHelloTonva {
+
+export interface UqBzHelloTonva {
+	$name: string;
 	Product: UqTuid<TuidProduct>;
 	$user: UqTuid<Tuid$user>;
 	$sheet: UqTuid<Tuid$sheet>;
 	WriteProductStock: UqAction<ParamWriteProductStock, ResultWriteProductStock>;
+	BookProduct: UqBook<ParamBookProduct, ResultBookProduct>;
 	$poked: UqQuery<Param$poked, Result$poked>;
 	GetProductStock: UqQuery<ParamGetProductStock, ResultGetProductStock>;
 }
 }
-
-

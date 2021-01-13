@@ -14,7 +14,7 @@ export class VMe extends VPage<CMe> {
                 type: 'component',
                 component: <div className="w-100 d-flex justify-content-between">
                     <IconText iconClass="text-info mr-2" icon="smile-o" text={this.t('aboutTheApp')} />
-                    <div className="py-2 small">V{appConfig.version}</div>
+                    <div className="py-2 small">V{appConfig.app?.version}</div>
                 </div>,
             }
         ];
@@ -49,13 +49,25 @@ export class VMe extends VPage<CMe> {
                     type: 'component',
                     component: <this.meInfo />
                 },
+			];
+			if (this.controller.roles) {
+				rows.push(
+					'',
+					{
+						type: 'component',
+						component: <IconText iconClass="text-success mr-2" icon="database" text={this.t('backend')} />,
+						onClick: this.controller.backend
+					},
+				);
+			}
+			rows.push(
                 '',
                 {
                     type: 'component',
                     component: <IconText iconClass="text-info mr-2" icon="key" text={this.t('changePassword')} />,
                     onClick: this.changePassword
-                },
-            ]
+				},
+			);
             rows.push(...aboutRows, ...logOutRows);
         }
         return <PropGrid rows={[...rows]} values={{}} />;

@@ -1,10 +1,16 @@
-//=== UqApp builder created on Wed Jan 06 2021 21:29:13 GMT-0500 (GMT-05:00) ===//
+//=== UqApp builder created on Tue Jan 12 2021 19:31:52 GMT-0500 (GMT-05:00) ===//
 import { AppConfig } from "tonva-react";
-import { appName } from "./appName";
 
 export const appConfig: AppConfig = {
-    appName: appName,
-	version: '0.1.0',
+	app: undefined,
+	uqs: {
+		"bizdev": {
+			"$": "bz",
+			"hello-tonva": "0.1.0",
+			"customer-payment": "0.1.0",
+			"test": "0.1.0",
+		},
+	},
 	noUnit: true,
     tvs: {},
 	oem: undefined,

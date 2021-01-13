@@ -3,7 +3,7 @@ export const en = {
 	relation: 'Relation',
 	discover: 'Discover',
 	test: 'Test',
-	bug: 'Bug',
+	debug: 'Debug',
 	me: 'Me',
 
 	changePassword: 'Change password',
@@ -11,18 +11,6 @@ export const en = {
 	logout: 'Logout',
 	pleaseLogin: 'Login',
 
-	notes: 'Notes',
-	task: 'Task',
-	assign: 'Assign',
-
-	noteSpace: 'Group',
-
-	noteText: 'Text',
-	noteList: 'List',
-	noteCheckable: 'Checkable',
-	noteTask: 'Task',
-	noteFolder: 'Folder',
-	noteCreateSpace: 'Create Group',
-
 	content: 'Content',
+	backend: 'Backend Management',
 }

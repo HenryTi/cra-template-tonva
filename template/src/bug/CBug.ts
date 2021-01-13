@@ -41,4 +41,10 @@ export class CBug extends CUqBase {
 		console.log();
 		console.log(`=== test end: ${t} ===`);
 	}
+
+	test = async () => {
+		let uqName = 'BizDev/hello-tonva';
+		let roles = await this.getUqRoles(uqName);
+		alert(roles);
+	}
 }

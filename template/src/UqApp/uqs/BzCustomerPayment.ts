@@ -1,5 +1,6 @@
-//=== UqApp builder created on Tue Jan 05 2021 18:44:18 GMT-0500 (GMT-05:00) ===//
-import { UqTuid, UqQuery, UqAction, UqSheet/*, Map, Tag*/ } from "tonva-react";
+//=== UqApp builder created on Tue Jan 12 2021 19:32:59 GMT-0500 (GMT-05:00) ===//
+import { UqTuid, UqSheet, UqBook, UqQuery, UqMap, UqHistory, UqPending } from "tonva-react";
+
 
 //===============================
 //======= UQ BizDev/customer-payment ========
@@ -20,11 +21,6 @@ export enum EnumCustomerAction {
 	red = 101
 };
 
-export enum EnumCustomerPayType {
-	direct = 1,
-	receivable = 2
-};
-
 export enum EnumPendingDone {
 	pending = 0,
 	done = 1,
@@ -32,7 +28,12 @@ export enum EnumPendingDone {
 	red = -2
 };
 
-export declare namespace CustomerPayment {
+export enum EnumCustomerPayType {
+	direct = 1,
+	receivable = 2
+};
+
+export declare namespace BzCustomerPayment {
 export interface Tuid$user {
 	name: string;
 	nick: string;
@@ -56,11 +57,13 @@ export interface Tuid$sheet {
 	processing: number;
 }
 
-export interface SheetDeliver {
+export interface SheetOrder {
 	customer: number;
 	detail: {
-		pendingId: number;
+		product: number;
+		pack: number;
 		quantity: any;
+		amount: any;
 	}[];
 }
 
@@ -78,13 +81,11 @@ export interface SheetInvoice {
 	}[];
 }
 
-export interface SheetOrder {
+export interface SheetDeliver {
 	customer: number;
 	detail: {
-		product: number;
-		pack: number;
+		pendingId: number;
 		quantity: any;
-		amount: any;
 	}[];
 }
 
@@ -184,22 +185,64 @@ interface ResultGetCustomerHistory {
 	$page: ReturnGetCustomerHistory$page[];
 }
 
+export interface ParamCustomerAccount {
+}
+interface ReturnCustomerAccount$page {
+	customer: number;
+	payType: any;
+	deposit: any;
+	receivable: any;
+	invoiceShould: any;
+	invoicePre: any;
+}
+interface ResultCustomerAccount {
+	$page: ReturnCustomerAccount$page[];
+}
 
-export interface UqCustomerPayment {
+export interface ParamCustomerHistory {
+	customer: number;
+	action: any;
+	sheet: number;
+	row: number;
+	user: number;
+	value: any;
+}
+interface ReturnCustomerHistory$page {
+	date: any;
+	customer: number;
+	action: any;
+	sheet: number;
+	row: number;
+	user: number;
+	value: any;
+}
+interface ResultCustomerHistory {
+	$page: ReturnCustomerHistory$page[];
+}
+
+
+export interface UqBzCustomerPayment {
+	$name: string;
 	$user: UqTuid<Tuid$user>;
 	$sheet: UqTuid<Tuid$sheet>;
-	Deliver: UqSheet<SheetDeliver, any>;
+	Order: UqSheet<SheetOrder, any>;
 	Deposit: UqSheet<SheetDeposit, any>;
 	Invoice: UqSheet<SheetInvoice, any>;
-	Order: UqSheet<SheetOrder, any>;
+	Deliver: UqSheet<SheetDeliver, any>;
 	PayReceivable: UqSheet<SheetPayReceivable, VerifyPayReceivable>;
+	CustomerAccount: UqBook<ParamCustomerAccount, ResultCustomerAccount>;
 	$poked: UqQuery<Param$poked, Result$poked>;
 	CustomerPendingDeliver: UqQuery<ParamCustomerPendingDeliver, ResultCustomerPendingDeliver>;
 	CustomerPendingInvoice: UqQuery<ParamCustomerPendingInvoice, ResultCustomerPendingInvoice>;
 	CustomerPendingReceivable: UqQuery<ParamCustomerPendingReceivable, ResultCustomerPendingReceivable>;
 	GetCustomerAccount: UqQuery<ParamGetCustomerAccount, ResultGetCustomerAccount>;
 	GetCustomerHistory: UqQuery<ParamGetCustomerHistory, ResultGetCustomerHistory>;
+	OrderDetail: UqMap;
+	UserCustomer: UqMap;
+	CustomerHistory: UqHistory<ParamCustomerHistory, ResultCustomerHistory>;
+	PendingOrderReceivable: UqPending<any, any>;
+	PendingOrderDeliver: UqPending<any, any>;
+	PendingOrderInvoice: UqPending<any, any>;
+	PendingOrderReturn: UqPending<any, any>;
 }
 }
-
-

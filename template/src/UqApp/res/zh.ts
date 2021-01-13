@@ -3,7 +3,7 @@ export const zh = {
 	relation: '关系',
 	discover: '发现',
 	test: '测试',
-	bug: 'Bug',
+	debug: 'Debug',
 	me: '我',
 
 	changePassword: '修改密码',
@@ -12,4 +12,5 @@ export const zh = {
 	pleaseLogin: '登录',
 
 	content: '内容',
+	backend: '后台管理',
 }

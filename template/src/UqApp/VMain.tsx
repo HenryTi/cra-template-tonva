@@ -16,11 +16,11 @@ export class VMain extends VPage<CApp> {
 		let { cHome, cBug, cMe } = this.controller;
 		let tabs: TabProp[] = [
 			{name: 'home', caption: caption(t('home'), 'home'), content: cHome.tab},
-			{name: 'me', caption: caption(t('me'), 'user-o'), content: cMe.tab},
+			{name: 'me', caption: caption(t('me'), 'user-o'), content: cMe.tab, load: cMe.load},
 		];
 		if (this.isDev === true) {
 			tabs.push({
-				name: 'bug', caption: caption(t('bug'), 'bug'), content: cBug.tab, onShown: cBug.load
+				name: 'debug', caption: caption(t('debug'), 'bug'), content: cBug.tab, onShown: cBug.load
 			});
 		}
 		return <Page tabsProps={{tabs}} webNav={{navHeader: <div>webNav header</div>, navFooter: <div>webNav footer</div>}} />;
