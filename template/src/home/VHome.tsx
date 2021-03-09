@@ -5,15 +5,15 @@ import '../App.css';
 
 export class VHome extends VPage<CHome> {
 	private items:string[] = [
-		'在服务器端创建app',
-		'创建uq编程单元',
-		'uq关联app',
-		'uq绑定数据库服务',
-		'编写uq代码',
-		'提交uq编译生成数据库',
-		'在 UqApp/uqAppOptions.ts 设置 uq-app',
-		'在vs code调试环境运行Build UqApp，生成uq typescript interface',
-		'调用uq接口，读写数据',
+		'在服务器端创建 app',
+		'创建 uq 编程单元',
+		'uq 关联 app',
+		'uq 绑定数据库服务',
+		'编写 uq 代码',
+		'提交 uq 编译生成数据库',
+		'在 src/appConfig.ts 设置 uqs',
+		'在 vs code 调试环境运行Build UqApp，生成uq typescript interface',
+		'调用 uq 接口，读写数据',
 	];
 	header() {return '首页'}
 	content() {

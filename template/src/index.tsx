@@ -4,10 +4,11 @@ import { NavView, start, nav } from 'tonva-react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { CApp, appConfig } from './UqApp';
+import { CApp } from './UqApp';
+import { appConfig } from './appConfig';
 
-nav.setSettings(appConfig);
 const App: React.FC = () => {
+	nav.setSettings(appConfig);
 	const onLogined = async (isUserLogin?:boolean) => {
 		await start(CApp, appConfig, isUserLogin);
 	}
