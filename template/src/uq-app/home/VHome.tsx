@@ -1,7 +1,7 @@
 import { FA, VPage } from "tonva-react";
 import { CHome } from "./CHome";
-import logo from '../logo.svg';
-import '../App.css';
+import logo from '../../logo.svg';
+import '../../App.css';
 
 export class VHome extends VPage<CHome> {
 	private items:string[] = [

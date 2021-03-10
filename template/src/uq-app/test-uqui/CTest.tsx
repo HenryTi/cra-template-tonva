@@ -1,8 +1,8 @@
 import { CBase, Context } from "tonva-react";
 import { CID, MidID, CIDX, MidIDX, MidTag, CIDTagList, CTagIDList
 	, SheetOptions, MidIDTagList, CSheetNew, MidSheet } from "tonva-uqui";
-import { CApp, UQs } from "UqApp";
-import { OrderDetail, OrderMaster } from "UqApp/uqs/BzHelloTonva";
+import { CApp, UQs } from "uq-app";
+import { OrderDetail, OrderMaster } from "uq-app/uqs/BzHelloTonva";
 import { VTester } from "./VTest";
 import { isNumber } from "lodash";
 import { CIDXList, MidIDXList } from "tonva-uqui";

@@ -1,4 +1,4 @@
-import { CUqBase } from "UqApp";
+import { CUqBase } from "uq-app";
 import { VHome } from "./VHome";
 
 export class CHome extends CUqBase {

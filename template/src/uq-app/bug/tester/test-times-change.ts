@@ -1,4 +1,4 @@
-import { UQs } from "UqApp";
+import { UQs } from "uq-app";
 import { Log } from "../Logger";
 
 export const testTimesChange = {

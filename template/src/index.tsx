@@ -1,19 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { NavView, start, nav } from 'tonva-react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { CApp } from './UqApp';
-import { appConfig } from './appConfig';
-
-const App: React.FC = () => {
-	nav.setSettings(appConfig);
-	const onLogined = async (isUserLogin?:boolean) => {
-		await start(CApp, appConfig, isUserLogin);
-	}
-	return <NavView onLogined={onLogined} />;
-}
+import { App } from 'uq-app';
 
 ReactDOM.render(
   <React.StrictMode>

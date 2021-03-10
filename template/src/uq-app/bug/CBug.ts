@@ -1,4 +1,4 @@
-import { CUqBase, UQs } from "UqApp";
+import { CUqBase, UQs } from "uq-app";
 import { Log } from "./Logger";
 import { debugItems } from "./tester";
 import { VBug } from "./VBug";

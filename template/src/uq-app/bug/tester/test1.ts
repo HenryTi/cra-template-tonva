@@ -1,6 +1,6 @@
-import { DebugItem } from "bug/CBug";
+import { DebugItem } from "../CBug";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { UQs } from "UqApp";
+import { UQs } from "uq-app";
 import { Log } from "../Logger";
 
 //BzTest, BzHelloTonva, BzCustomerPayment, 
