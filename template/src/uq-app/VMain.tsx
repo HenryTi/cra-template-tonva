@@ -3,7 +3,7 @@ import { VPage, TabProp, TabCaptionComponent, t, TabsProps, PageWebNav } from 't
 import { CApp } from './CApp';
 
 const color = (selected: boolean) => selected === true ? 'text-primary' : 'text-muted';
-function caption(label:string, icon:string) {
+function caption(label:string|JSX.Element, icon:string) {
 	return (selected: boolean) => TabCaptionComponent(label, icon, color(selected));
 }
 
