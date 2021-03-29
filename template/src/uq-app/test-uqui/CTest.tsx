@@ -1,11 +1,10 @@
 import { CBase, Context } from "tonva-react";
 import { CID, MidID, CIDX, MidIDX, MidTag, CIDTagList, CTagIDList
-	, SheetOptions, MidIDTagList, CSheetNew, MidSheet } from "tonva-uqui";
+	, SheetUI, MidIDTagList, CSheetNew, MidSheet } from "tonva-uqui";
 import { CApp, UQs } from "uq-app";
-import { OrderDetail, OrderMaster } from "uq-app/uqs/BzHelloTonva";
+//import { OrderDetail, OrderMaster } from "uq-app/uqs/BzHelloTonva";
 import { VTester } from "./VTest";
 import { isNumber } from "lodash";
-import { CIDXList, MidIDXList } from "tonva-uqui";
 
 export interface UIItem {
 	name: string;
@@ -15,12 +14,13 @@ export interface UIItem {
 
 export class CTester extends CBase<CApp,UQs> {
 	readonly uiItems:UIItem[] = [
+		/*
 		{
 			name: 'customer',
 			discription: '客户信息',
 			click: async () => {
 				let uq = this.uqs.BzHelloTonva;
-				let mid = new MidID(uq, uq.Customer);
+				let mid = new MidID(uq, {ID:uq.Customer});
 				let cID = new CID(mid);
 				await cID.start();
 			}
@@ -51,7 +51,7 @@ export class CTester extends CBase<CApp,UQs> {
 			discription: 'TimeChange Staff',
 			click: async () => {
 				let uq = this.uqs.BzHelloTonva;
-				let mid = new MidID(uq, uq.Staff);
+				let mid = new MidID(uq, {ID:uq.Staff});
 				let cStaff = new CID(mid);
 				cStaff.renderItem = (item:any, index:number): JSX.Element => {
 					return <div className="">{uq.Staff.render(item)}</div>
@@ -66,11 +66,7 @@ export class CTester extends CBase<CApp,UQs> {
 				let uq = this.uqs.BzHelloTonva;
 				let mid = new MidIDX(uq, uq.Hours, uq.Staff, this.timeZone);
 				let cHours = new CIDX(mid);
-				//await cHours.start();
-				let midIDXList = new MidIDXList(uq, uq.Staff, uq.Hours);
-				midIDXList.onItemClick = (item:any) => cHours.start(item);
-				let idList = new CIDXList(midIDXList);
-				await idList.start();
+				await cHours.start();
 			}
 		},
 		{
@@ -85,16 +81,16 @@ export class CTester extends CBase<CApp,UQs> {
 						context.setValue('amount', (price*quantity).toFixed(2));
 					}
 				}
-				let sheetOptions:SheetOptions = {
+				let sheetUI:SheetUI = {
 					master: {
 						ID: uq.OrderMaster,
-						fields: {
+						fieldCustoms: {
 							customer: {ID: uq.Customer},
 						}
 					},
 					detail: {
 						ID: uq.OrderDetail,
-						fields: {
+						fieldCustoms: {
 							product: { ID: uq.Customer },
 							price: { onChanged },
 							quantity: { onChanged },
@@ -102,14 +98,16 @@ export class CTester extends CBase<CApp,UQs> {
 						}
 					}
 				}
-				let mid = new MidSheet<OrderMaster, OrderDetail>(uq, this.res, sheetOptions);
+				let mid = new MidSheet<OrderMaster, OrderDetail>(uq, sheetUI, this.res);
 				let cSheetNew = new CSheetNew(mid);
 				await cSheetNew.start();
 			}
 		},
+		*/
 	];
 
 	protected async internalStart() {
+		this.openVPage(VTester);
 	}
 
 	tab = () => this.renderView(VTester);
