@@ -20,7 +20,7 @@
 		"mobx-react": "^7.0.5",
 		"react-chartjs-2": "^2.11.1",
 		"react-scripts": "4.0.1",
-		"tonva-react": "^1.9.81",
+		"tonva-react": "^2.0.0",
 		"tonva-uqui": "^0.1.17",
 		"typescript": "^4.1.3",
 		"web-vitals": "^0.2.4"
